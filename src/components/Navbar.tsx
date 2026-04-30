@@ -1,4 +1,5 @@
 import logo from "../assets/logo.png";
+import {Link} from "react-router-dom";
 const Navbar = () => {
     return (
         <div className="w-full h-16 md:h-20 flex items-center justify-between px-4">
@@ -8,22 +9,26 @@ const Navbar = () => {
             </div>
 
             <div className="hidden md:flex items-center gap-8 font-medium">
-                <a href="#">Home</a>
+                <Link to={"/"}>Home</Link>
                 <a href="#">Trending</a>
                 <a href="#">Most Popular</a>
                 <a href="#">About</a>
+                <Link to={"/login"}>
                 <button className="py-2 px-4 rounded-3xl bg-blue-800 text-white">
                     Login 👋
                 </button>
+                </Link>
             </div>
             <div className="md:hidden flex flex-col items-center gap-4 text-lg font-medium">
-                <a href="#">Home</a>
+                <Link to={"/"}>Home</Link>
                 <a href="#">Trending</a>
                 <a href="#">Most Popular</a>
                 <a href="#">About</a>
+                <Link to={"/login"}>
                 <button className="py-2 px-4 rounded-3xl bg-blue-800 text-white">
                     Login 👋
                 </button>
+                </Link>
             </div>
 
         </div>
