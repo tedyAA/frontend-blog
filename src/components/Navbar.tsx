@@ -63,6 +63,7 @@ const Navbar = () => {
                 <Link to="/posts?sort=trending">Trending</Link>
                 <Link to="/posts?sort=popular">Most Popular</Link>
                 <Link to="/">About</Link>
+                <Link to="/">About</Link>
                 <SignedOut>
                     <Link to="/login">
                         <button className="py-2 px-4 rounded-3xl bg-blue-800 text-white">
