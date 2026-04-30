@@ -1,12 +1,19 @@
 import './App.css'
+import {Route, Routes} from "react-router-dom";
+import Homepage from "./pages/Home.tsx";
+import LoginPage from "./pages/Login.tsx";
+import Navbar from "./components/Navbar.tsx";
 
 function App() {
 
   return (
       <>
-        <h1 className="text-3xl font-bold text-blue-500">
-          Hello Tailwind 🚀
-        </h1>
+          <Navbar/>
+          <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/login" element={<LoginPage />} />
+          </Routes>
+
       </>
   )
 }
