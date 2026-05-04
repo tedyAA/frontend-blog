@@ -21,6 +21,8 @@ const Navbar = () => {
             </div>
             <div className="md:hidden flex flex-col items-center gap-4 text-lg font-medium">
                 <Link to={"/"}>Home</Link>
+                <Link to={"/"}>Home</Link>
+                <a href="#">Trending</a>
                 <a href="#">Trending</a>
                 <a href="#">Most Popular</a>
                 <a href="#">About</a>
