@@ -1,95 +1,91 @@
-import { Link } from "react-router-dom";
+import HeroCarousel from "../components/HeroCarousel";
+
+const blogSections = [
+    {
+        name: "Technology",
+        articles: [
+            {
+                title: "AI Tools Transforming Daily Work",
+                excerpt: "A practical look at how modern AI assistants improve writing, coding, and planning.",
+            },
+            {
+                title: "React Performance in 2026",
+                excerpt: "Simple optimization habits to keep your frontend smooth as your app scales.",
+            },
+            {
+                title: "Cloud Security Essentials",
+                excerpt: "Core practices every developer should follow to protect APIs and user data.",
+            },
+        ],
+    },
+    {
+        name: "Farming",
+        articles: [
+            {
+                title: "Smart Irrigation for Better Yield",
+                excerpt: "How sensor-driven watering can reduce waste and improve harvest consistency.",
+            },
+            {
+                title: "Organic Soil Management Basics",
+                excerpt: "Improve soil health naturally with composting, crop rotation, and cover crops.",
+            },
+            {
+                title: "Modern Greenhouse Strategies",
+                excerpt: "Build a climate-friendly setup for year-round farming productivity.",
+            },
+        ],
+    },
+    {
+        name: "Finance",
+        articles: [
+            {
+                title: "Budgeting for Freelancers",
+                excerpt: "Create a reliable monthly budget even when your income changes often.",
+            },
+            {
+                title: "Understanding Long-Term Investing",
+                excerpt: "A beginner-friendly guide to compounding, risk, and portfolio balance.",
+            },
+            {
+                title: "Emergency Fund Planning",
+                excerpt: "Step-by-step advice to build financial safety for unexpected life events.",
+            },
+        ],
+    },
+];
 
 const Homepage = () => {
     return (
-        <div className="mt-4 flex flex-col gap-6 px-4">
-            <div className="flex gap-4 text-sm text-gray-600">
-                <Link to="/">Home</Link>
-                <span>•</span>
-                <span className="text-blue-800">Blogs and Articles</span>
-            </div>
+        <div className="mt-4 flex flex-col gap-10 px-4 pb-8">
+            <HeroCarousel />
 
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
-                <div>
-                    <h1 className="text-gray-800 text-2xl md:text-5xl font-bold">
-                        Simple Blog App with React + Node.js
-                    </h1>
+            {blogSections.map((section) => (
+                <section key={section.name} className="rounded-2xl bg-white/70 p-4 md:p-6">
+                    <h2 className="mb-6 text-2xl font-bold text-gray-800">{section.name}</h2>
 
-                    <p className="mt-6 text-md md:text-xl text-gray-600">
-                        A clean and modern blog where you can read and share ideas easily.
-                    </p>
-                </div>
+                    <div className="flex flex-col gap-6">
+                        {section.articles.map((article, index) => (
+                            <article
+                                key={article.title}
+                                className={`grid items-center gap-4 rounded-xl border p-4 md:grid-cols-2 md:gap-6 ${
+                                    index % 2 === 0 ? "" : "md:[&>*:first-child]:order-2"
+                                }`}
+                            >
+                                <div>
+                                    <h3 className="text-xl font-semibold text-gray-800">{article.title}</h3>
+                                    <p className="mt-2 text-gray-600">{article.excerpt}</p>
+                                </div>
 
-                <Link to="/write" className="relative hidden md:block">
-                    <div className="w-40 h-40 rounded-full border flex items-center justify-center animate-spin-slow text-xs tracking-widest">
-                        Write • Share • Create •
+                                <img
+                                    src="https://placehold.net/3.png"
+                                    alt={article.title}
+                                    className="h-56 w-full rounded-lg object-cover"
+                                />
+                            </article>
+                        ))}
                     </div>
-
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-20 h-20 bg-blue-800 rounded-full flex items-center justify-center text-white font-bold">
-                            Go
-                        </div>
-                    </div>
-                </Link>
-
-            </div>
-
-            <div className="flex flex-wrap gap-3 text-sm">
-                <span className="px-3 py-1 bg-gray-200 rounded-full">All</span>
-                <span className="px-3 py-1 bg-gray-200 rounded-full">Technology</span>
-                <span className="px-3 py-1 bg-gray-200 rounded-full">Design</span>
-                <span className="px-3 py-1 bg-gray-200 rounded-full">Life</span>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-4">
-
-                <div className="p-4 border rounded-xl">
-                    <h2 className="font-bold">First Blog Post</h2>
-                    <p className="text-sm text-gray-600 mt-2">
-                        Simple introduction to the blog system.
-                    </p>
-                </div>
-
-                <div className="p-4 border rounded-xl">
-                    <h2 className="font-bold">React Tips</h2>
-                    <p className="text-sm text-gray-600 mt-2">
-                        Learn React basics and best practices.
-                    </p>
-                </div>
-
-                <div className="p-4 border rounded-xl">
-                    <h2 className="font-bold">Node Backend</h2>
-                    <p className="text-sm text-gray-600 mt-2">
-                        Build a simple API with Express.
-                    </p>
-                </div>
-
-            </div>
-
-            <div>
-                <h1 className="my-6 text-xl font-semibold text-gray-700">
-                    Recent Posts
-                </h1>
-
-                <div className="space-y-4">
-
-                    <div className="p-4 border rounded-lg">
-                        <h3 className="font-bold">Understanding Full Stack Development</h3>
-                        <p className="text-sm text-gray-600">
-                            How frontend and backend work together.
-                        </p>
-                    </div>
-
-                    <div className="p-4 border rounded-lg">
-                        <h3 className="font-bold">Why React is Popular</h3>
-                        <p className="text-sm text-gray-600">
-                            A quick overview of React advantages.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-
+                </section>
+            ))}
         </div>
     );
 };
